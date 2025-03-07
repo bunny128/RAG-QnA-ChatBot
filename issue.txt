@@ -1,0 +1,22 @@
+❌ Issues in Your Code:
+1. File Upload Handling Issue
+Issue: You set accept_multiple_files=False but try to iterate over uploaded_files as if it's a list.
+Fix: Change accept_multiple_files=True and properly iterate.
+2. Missing Embedding Definition
+Issue: embeddings is used in Chroma.from_documents() but is never defined.
+Fix: Define embeddings = HuggingFaceEmbeddings() before using it.
+3. Temp File Overwriting
+Issue: Temp file is named ./temp.pdf, which overwrites if multiple PDFs are uploaded.
+Fix: Use a unique filename like ./temp_{uploaded_file.name}.
+4. Misplaced Session History Handling
+Issue: session_id is used before checking if it's in st.session_state.store.
+Fix: Ensure session management is properly handled.
+5. Incorrect API Call in conversational_rag_chain.invoke
+Issue: Incorrect "configurablel" key spelling.
+Fix: Change it to "configurable".
+6. Incorrect st.success() Call
+Issue: st.success('Assistant', response['answer']) is incorrect syntax.
+Fix: It should be st.success(response['answer']).
+7. Error Handling & Logging
+Issue: No error handling if API keys are incorrect or LLM call fails.
+Fix: Add try-except blocks.
