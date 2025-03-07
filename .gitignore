@@ -5,3 +5,4 @@ groq_chatbot/
 lama_chatbot/
 .env
 
+issues/
